@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,400" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        nav {
+            background: #1e1e1e;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            color: #4ca1af;
+        }
+
+        section {
+            padding: 50px 100px;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        section:nth-of-type(1) {
+            animation-delay: 0.8s;
+        }
+
+        section:nth-of-type(2) {
+            animation-delay: 1s;
+        }
+
+        section:nth-of-type(3) {
+            animation-delay: 1.2s;
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #4ca1af;
+            text-align: left;
+        }
+
+        section p {
+            font-size: 18px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .project {
+            margin-bottom: 40px;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        .project h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        .project ul {
+            list-style: disc;
+            padding-left: 20px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .project img {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #444;
+            border-radius: 8px;
+        }
+
+        .sc-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .sc-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4ca1af;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        #back-to-top:hover {
+            background: #367a91;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            nav li {
+                margin: 0 10px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            section p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Chase Zhao</h1>
+        <p>Web Developer</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Web Developer with 5 years commercial experience in delivering user-centric web solutions for banking,
+            energy, OS development and open-source domains.</p>
+        <p>Expert in React, Vue, AngularJS, jQuery and modern JavaScript (ES6+) toolkits for front end, and Node.js,
+            Python Flask for backend.</p>
+        <p>Proven experience in responsive design, cross-browser compatibility, and CMS-based development.</p>
+        <p>Strong background in Agile workflows, API integration, and leading cross-functional teams.</p>
+        <p>Certified contributor to open-source communities (openEuler HA SIG), demonstrating adaptability to enterprise
+            and collaborative environments</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Full Stack Developer | GreenBox Solutions Pty Ltd</h3>
+            <h4>Project: Solar Device Management System (Next.js/React/TypeScript & Flask)</h4>
+            <ul>
+                <li>Built 4 key modules (data visualization, pricing API integration, config deployment, access control)
+                    using React.js,
+                    ECharts, and TypeScript, improving user engagement by 30%.</li>
+                <li>Designed responsive layouts compliant with WCAG 2.1 accessibility standards.</li>
+                <li>Integrated Modbus protocol for real-time PLC communication, reducing data latency by 25%.</li>
+                <li>Collaborated with DevOps to deploy project via CI/CD pipelines (Jenkins).</li>
+                <li>
+                    <p>Project expamle:</p>
+                    <img src="./public/ems.png" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="project">
+            <h3>Front End Developer | Standard Chartered</h3>
+            <h4>Project: Mobile Banking App for India (React/Ember)</h4>
+            <ul>
+                <li>Delivered 15+ credit card features using React and Ember, solving 25+ Node.js server issues,
+                    supporting 2M+ users.</li>
+                <li>Optimized API integration with Axios, achieving 99.9% uptime during stress testing.</li>
+                <li>Reduced bugs by 40% through Jest unit tests and Ember Testing API implementation.</li>
+                <li>Authored 13 AIG documents for zero-rollback deployments in hybrid agency-client teams.</li>
+                <li>
+                    <p>Project expamle:</p>
+                    <div class="sc-container">
+                        <img src="./public/sc1.png" alt="">
+                        <img src="./public/sc2.png" alt="">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:rfvedcqwsx@live.com">rfvedcqwsx@live.com</a></p>
+        <p>Phone: +61 0424250156</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Chase Zhao. All Rights Reserved.</p>
+    </footer>
+
+    <button id="back-to-top" title="Back to Top">▲</button>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
